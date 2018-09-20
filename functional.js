@@ -112,7 +112,7 @@ console.log(dakotaFour(states));
 
 // REDUCE!
 
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // imperative function
 
@@ -128,7 +128,7 @@ console.log(imperativeSum(numbers));
 
 // sum: Functional solution
 function functionalSum(elements) {
-  return elements.reduce((total, n) => { return total += n; });
+  return elements.reduce((total, n) => { return total += n });
 }
 console.log(functionalSum(numbers));
 
@@ -157,14 +157,21 @@ console.log(functionalLengths(states));
 
 
 
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function productsNumbers(elements) {
+	return elements.reduce((total, n) => { 
+		return total *= n;
+	})
+}
+
+console.log(productsNumbers(numbers))
 
 
 
 
-
-
-
-
+function functionalLengths(elements){ return elements.reduce((lengths, element) => { lengths[element] = element.length; return lengths;}, {});}
+console.log(functionalLengths(states));
 
 
 
