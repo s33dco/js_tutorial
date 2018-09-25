@@ -1,0 +1,30 @@
+#! /usr/local/bin/node
+
+
+let request = require("request");
+let Phrase = require("s33dco-palindrome");
+let url = 'https://cdn.learnenough.com/phrases.txt'
+
+request(url, function(error, response, body) {
+  let lines = body.split("\n");
+  let palindromes = lines.filter(line => new Phrase(line).palindrome());
+
+  console.log(`${palindromes.length} palindrome(s) detected on url`);
+
+  palindromes.forEach(function(palindrome) {
+    console.log("palindrome detected:", palindrome);
+  });
+});
+
+
+
+// straight from url
+
+// request(url, function (error, response, body) {
+//   body.split("\n").forEach(function(line) {
+//     phrase = new Phrase(line);
+//     if (phrase.palindrome()) {
+//       console.log("palindrome detected:", line);
+//     }
+//   });
+// });
